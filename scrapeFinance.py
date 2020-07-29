@@ -8,7 +8,6 @@ from datetime import timedelta, date
 import requests
 import time
 import json
-import pymongo
 
 from pymongo import MongoClient
 client = MongoClient() #get client
