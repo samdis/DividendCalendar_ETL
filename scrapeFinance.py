@@ -21,7 +21,6 @@ for single_date in daterange(start_date, end_date):
     next_date = single_date.strftime("%m_%d_%Y")
     url = "http://www.thestreet.com/util/divs.jsp?date=" + next_date
     p = requests.get(url)
-    # print (p.text)
     cleanText = p.text
     cleanText = cleanText.replace('results', '\"results\"')
     cleanText = cleanText.replace("symbol", '\"symbol\"')
