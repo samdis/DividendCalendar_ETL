@@ -5,11 +5,6 @@ from datetime import timedelta, date
 import requests
 import time
 import json
-import pandas as pd
-import pandas_market_calendars
-
-
-print(pandas_market_calendars.get_calendar_names())
 
 from pymongo import MongoClient
 
@@ -43,14 +38,6 @@ for single_date in daterange(start_date, end_date):
 
     finance_data = json.loads(cleanText)
     result = collection.insert_many(finance_data['results'])
-    for results in finance_data['results']:
-        record = {'symbol': finance_data['symbol'],
-                  'amount': finance_data['amount'],
-                  'exdate': finance_data['exdate'],
-                  'payment date': "01-01-2020"}
-        collection.insert_one(record)
-    #    print(results['symbol'])
-    #    print(results['name'])
-    #    print(results['amount'])
+    #for results in finance_data['results']:
 
     print(result.inserted_ids)
