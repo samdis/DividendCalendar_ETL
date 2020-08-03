@@ -24,6 +24,7 @@ for single_date in daterange(start_date, end_date):
     next_date = single_date.strftime("%m_%d_%Y")
     url = "http://www.thestreet.com/util/divs.jsp?date=" + next_date
     p = requests.get(url)
+    time.sleep(1)
 
     cleanText = p.text
     if not cleanText:
